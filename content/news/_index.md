@@ -5,6 +5,8 @@ build:
   list: local
 ---
 
+**2026** &nbsp;&nbsp; Selected for the **KAIST School of Computing Global Preview Week** in September, a fully funded research visit — top 20 of 1,000+ participants.
+
 **2026** &nbsp;&nbsp; Reviewer for the ICML 2026 workshop on Decision-Making from Offline Datasets to Online Adaptation.
 
 **2026** &nbsp;&nbsp; Paper accepted to **ICML 2026**: *Cross-Modal Knowledge Distillation without Paired Data.*
