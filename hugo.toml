@@ -2,6 +2,7 @@ baseURL = 'https://anhducchu.github.io/'
 languageCode = 'en-us'
 title = 'Chu Anh Duc'
 theme = 'barks'
+disablePathToLower = true
 disableKinds = ['taxonomy', 'term']
 
 [markup.goldmark.renderer]
@@ -20,6 +21,10 @@ disableKinds = ['taxonomy', 'term']
         name = "Background"
         url = "/cv/"
         weight = 3
+    [[menu.main]]
+        name = "CV"
+        url = "/pdf/CV_ChuAnhDuc.pdf"
+        weight = 4
 
 [params]
     author = "Chu Anh Duc"

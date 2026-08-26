@@ -1,14 +1,29 @@
 
 {{ define "main" }}
-<div class="landing-page-wrapper{{ if not .Params.image }} no-image{{ end }}">
+
+{{/* Ảnh chân dung: tự nhận bất kỳ file nào tên static/images/profile.<ext>.
+     Chỉ cần push ảnh lên là nó hiện, không phải sửa config.
+     Muốn chỉ định file khác thì đặt `image:` trong front matter của trang. */}}
+{{ $img := .Params.image }}
+{{ if not $img }}
+    {{ if fileExists "static/images" }}
+        {{ range readDir "static/images" }}
+            {{ if findRE `(?i)^profile\.(jpe?g|png|webp|avif|gif)$` .Name }}
+                {{ $img = printf "/images/%s" .Name }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+<div class="landing-page-wrapper{{ if not $img }} no-image{{ end }}">
     <div class="landing-page-content">
         <div>
             {{ .Content | safeHTML }}
         </div>
     </div>
-    {{ with .Params.image }}
+    {{ with $img }}
     <div class="landing-page-image">
-        <img src="{{ . }}" alt="{{ $.Site.Title }}">
+        <img src="{{ . | relURL }}" alt="{{ $.Site.Title }}">
     </div>
     {{ end }}
 </div>

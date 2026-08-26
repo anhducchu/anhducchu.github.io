@@ -1,8 +1,9 @@
 ---
 title: "Home"
 layout: landing_page
-# Bỏ ảnh vào static/images/profile.jpg rồi mở dòng dưới:
-# image: "/images/profile.jpg"
+# Ảnh chân dung: chỉ cần bỏ file vào static/images/profile.jpg
+# (hoặc .png/.webp) là site tự nhận, không cần sửa gì ở đây.
+# Muốn dùng file tên khác thì khai báo: image: "/images/ten-file.jpg"
 ---
 
 Hi, I'm Anh Đức — you can call me Duc.
