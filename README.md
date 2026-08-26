@@ -33,7 +33,18 @@ image: "/images/profile.jpg"
 Chỉ cần bỏ file ảnh vào `static/images/profile.jpg` cho khớp đường dẫn đó là xong.
 Muốn dùng tên file khác thì sửa dòng `image:` cho khớp.
 
-Ảnh nên để dạng chân dung dọc, tỉ lệ khoảng 2:3 (ví dụ 440x660 px).
+Ảnh nên để dạng chân dung dọc, tỉ lệ khoảng 2:3.
+
+Ảnh hiện tại đã nén sẵn về 880x1320, JPEG quality 84 (110 KB). Chỗ hiển thị chỉ rộng
+221px nên không cần ảnh to hơn — đưa thẳng ảnh gốc vài MB lên sẽ làm trang tải chậm.
+Khi thay ảnh mới thì nén lại tương tự:
+
+```python
+from PIL import Image
+im = Image.open("anh-goc.jpg").convert("RGB")
+im = im.resize((880, int(880*im.height/im.width)), Image.LANCZOS)
+im.save("static/images/profile.jpg", "JPEG", quality=84, optimize=True, progressive=True)
+```
 
 Site có kiểm tra file tồn tại trước khi chèn: khi nào chưa push ảnh lên thì phần chữ
 tự giãn full chiều rộng, không hiện icon ảnh vỡ. Nếu quên sửa `image:` mà cứ đặt tên
