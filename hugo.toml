@@ -34,7 +34,7 @@ enableRobotsTXT = true
 
     [params.head]
         author = "Chu Anh Duc"
-        description = "Chu Anh Duc (Chu Anh Đức) is a BSc student in Data Science and Artificial Intelligence at Hanoi University of Science and Technology and an undergraduate researcher at AI4LIFE Lab, working on diffusion models, optimal transport and cross-modal learning."
+        description = "Chu Anh Duc (Chu Anh Đức) is a BSc student in Data Science and Artificial Intelligence at Hanoi University of Science and Technology and an undergraduate researcher at AI4LIFE Lab, working on physics-aware diffusion models, optimal transport for cross-modal distillation, and the theory of long-tailed generation."
         keywords = ["Chu Anh Duc", "Chu Anh Đức", "Anh Duc Chu", "anhducchu", "diffusion models", "optimal transport", "knowledge distillation", "cross-modal learning", "medical imaging", "HUST", "AI4LIFE Lab"]
         # Đứng sau tên ở thẻ <title> trang chủ — Google hay hiện nguyên dòng này.
         tagline = "Data Science & AI Researcher, HUST"
@@ -49,7 +49,7 @@ enableRobotsTXT = true
         job_title = "Undergraduate Researcher"
         affiliation = "Hanoi University of Science and Technology"
         affiliation_url = "https://hust.edu.vn"
-        knows_about = ["Machine Learning", "Diffusion Models", "Optimal Transport", "Knowledge Distillation", "Medical Image Computing", "Cross-Modal Representation Learning"]
+        knows_about = ["Machine Learning", "Diffusion Models", "Optimal Transport", "Knowledge Distillation", "Medical Image Computing", "Cross-Modal Representation Learning", "Long-Tailed Generation"]
         # Hồ sơ ở nơi khác — tín hiệu quan trọng nhất để Google biết
         # trang này với các tài khoản kia là cùng một người.
         same_as = [
@@ -72,17 +72,20 @@ enableRobotsTXT = true
         title_font = "Bree Serif"
         body_font = "Source Sans Pro"
 
-    # ---- Bảng màu đen trắng ----
+    # ---- Bảng màu đen trắng, sắc trung tính hơi ấm ----
+    # Tránh trắng tinh #fff và đen tuyền #000 vì tương phản 21:1 gây nhức mắt
+    # khi đọc lâu. Bộ dưới vẫn đạt 12.9:1 (nền sáng) và 11.7:1 (nền tối),
+    # thừa chuẩn WCAG AA (4.5:1). Đổi thì kiểm tra lại tương phản.
     [params.colors]
-        theme_color           = "#111111"
-        background_color      = "#ffffff"
-        text_color            = "#181818"
-        link_color            = "#000000"
-        name_blur_color       = "#c4c4c4"
-        dark_background_color = "#000000"
-        dark_text_color       = "#ededed"
-        dark_link_color       = "#ffffff"
-        dark_name_blur_color  = "#4a4a4a"
+        theme_color           = "#2f2e2b"
+        background_color      = "#faf9f7"
+        text_color            = "#2f2e2b"
+        link_color            = "#171614"
+        name_blur_color       = "#bfbcb6"
+        dark_background_color = "#1a1a19"
+        dark_text_color       = "#d6d3cd"
+        dark_link_color       = "#f0eee9"
+        dark_name_blur_color  = "#56544f"
 
     [params.social]
         [params.social.email]

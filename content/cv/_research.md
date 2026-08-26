@@ -7,7 +7,7 @@ build:
   list: local
 ---
 
-**AI4LIFE Lab, Hanoi University of Science and Technology**  
+[**AI4LIFE Lab**](https://ai4life.hust.edu.vn/)**, Hanoi University of Science and Technology**  
 Undergraduate Researcher  
 *2024 – Present*
 - Supervisor: Assoc. Prof. Nguyen Phi Le
