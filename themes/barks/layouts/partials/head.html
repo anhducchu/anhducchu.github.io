@@ -1,9 +1,7 @@
 
 <head>
 
-    <!-- Add Hugo version and build date -->
     {{ hugo.Generator }}
-    <meta name="date" content="{{ hugo.BuildDate }}">
 
     <!-- Set meta tags -->
     <meta charset="utf-8">
@@ -14,6 +12,10 @@
     <meta name="theme-color" content="{{ .Site.Params.colors.theme_color | default "#333333" }}">
 
     <!-- Add author, description and keywords -->
+    {{ with .Site.Params.head.google_site_verification }}
+    <meta name="google-site-verification" content="{{ . }}">
+    {{ end }}
+
     <meta name="author" content="{{ .Site.Params.head.Author }}">
     <meta name="description" content="{{ .Site.Params.head.Description }}" />
     {{ with .Site.Params.head.keywords }}
@@ -124,9 +126,6 @@
             {{ $person = merge $person (dict "affiliation" $org "alumniOf" $org) }}
         {{ end }}
         {{ with $seo.og_image }}{{ $person = merge $person (dict "image" (. | absURL)) }}{{ end }}
-        {{ with .Site.Params.social.email }}
-            {{ $person = merge $person (dict "email" (replace .url "mailto:" "")) }}
-        {{ end }}
         {{ $site := dict
             "@type" "WebSite"
             "@id" (printf "%s#website" .Site.BaseURL)

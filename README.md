@@ -10,7 +10,7 @@ bảng màu đen trắng.
 | Đoạn giới thiệu trang chủ | `content/_index.md` |
 | Mục News | `content/news/_index.md` |
 | Publications | `content/publications/_2026.md` (mỗi năm một file: `_2025.md`, `_2027.md`…) |
-| Trang Background | `content/cv/_education.md`, `_research.md`, `_awards.md`, `_leadership.md`, `_skills.md` |
+| Trang About | `content/about/_education.md`, `_research.md`, `_academic.md`, `_awards.md`, `_leadership.md`, `_skills.md`, `_references.md` |
 | Tên, email, link mạng xã hội, menu, **màu sắc** | `hugo.toml` |
 | File CV PDF | `static/pdf/CV_ChuAnhDuc.pdf` (thay file là xong, giữ nguyên tên) |
 | Ảnh chân dung | `static/images/profile.jpg` |
@@ -122,3 +122,20 @@ google-chrome --headless=new --window-size=1200,630 \
 3. **Tạo hồ sơ Google Scholar** rồi thêm link vào `same_as` trong `hugo.toml`. Scholar
    xếp hạng rất cao cho truy vấn tên người làm nghiên cứu.
 4. Nếu muốn gom cả Facebook về cùng một thực thể thì thêm luôn URL Facebook vào `same_as`.
+
+## Vài thứ đừng xoá nhầm
+
+- `static/googlec90ba32a12081bfc.html` và `google_site_verification` trong `hugo.toml` —
+  hai cách xác minh Google Search Console. Google kiểm tra lại định kỳ, xoá là rớt quyền
+  sở hữu site trong Search Console.
+- `enableGitInfo = true` + `fetch-depth: 0` trong workflow — dùng lịch sử git để sinh
+  `<lastmod>` cho từng trang trong sitemap. Bỏ `fetch-depth` thì clone nông, mất lastmod.
+- `aliases: ["/cv/"]` trong `content/about/_index.md` — trang đổi từ `/cv/` sang `/about/`,
+  alias giữ cho link cũ không chết.
+
+## Email trong footer
+
+Địa chỉ không nằm thẳng trong HTML mà được mã hoá base64 trong `data-m`, JS ghép lại
+lúc chạy. Bot quét regex `mailto:` sẽ không thu được gì. Lưu ý đây chỉ chặn được loại
+bot đơn giản: bot có chạy JS vẫn đọc được, và email vẫn nằm dạng chữ thường trong file
+CV PDF.

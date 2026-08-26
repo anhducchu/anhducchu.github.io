@@ -5,6 +5,12 @@ theme = 'barks'
 disablePathToLower = true
 disableKinds = ['taxonomy', 'term']
 enableRobotsTXT = true
+# Lấy ngày sửa từ lịch sử git -> sitemap có <lastmod> thật cho từng trang.
+# Cần fetch-depth: 0 trong .github/workflows/hugo.yml, clone nông sẽ không có dữ liệu.
+enableGitInfo = true
+
+[frontmatter]
+    lastmod = [":git", "lastmod", "date"]
 
 [markup.goldmark.renderer]
     unsafe = true
@@ -19,8 +25,8 @@ enableRobotsTXT = true
         url = "/publications/"
         weight = 2
     [[menu.main]]
-        name = "Background"
-        url = "/cv/"
+        name = "About"
+        url = "/about/"
         weight = 3
     [[menu.main]]
         name = "CV"
@@ -38,6 +44,9 @@ enableRobotsTXT = true
         keywords = ["Chu Anh Duc", "Chu Anh Đức", "Anh Duc Chu", "anhducchu", "diffusion models", "optimal transport", "knowledge distillation", "cross-modal learning", "medical imaging", "HUST", "AI4LIFE Lab"]
         # Đứng sau tên ở thẻ <title> trang chủ — Google hay hiện nguyên dòng này.
         tagline = "Data Science & AI Researcher, HUST"
+        # Xác minh Google Search Console. Đừng xoá sau khi verify xong,
+        # Google kiểm tra lại định kỳ, mất là rớt quyền sở hữu.
+        google_site_verification = "mhRFH9k5HJyCJ5G6rpoM0gh5sz4azcUnoAJNXMrgYzE"
 
     # ---- SEO ----
     [params.seo]
@@ -53,6 +62,7 @@ enableRobotsTXT = true
         # Hồ sơ ở nơi khác — tín hiệu quan trọng nhất để Google biết
         # trang này với các tài khoản kia là cùng một người.
         same_as = [
+            "https://scholar.google.com/citations?user=AMkdDKQAAAAJ",
             "https://github.com/anhducchu",
             "https://www.linkedin.com/in/chuanhduc/",
         ]
@@ -93,13 +103,18 @@ enableRobotsTXT = true
             class = "fas fa-envelope"
             url = "mailto:ducca.work@gmail.com"
             weight = 1
+        [params.social.google_scholar]
+            name = "Google Scholar"
+            class = "ai ai-google-scholar-square"
+            url = "https://scholar.google.com/citations?user=AMkdDKQAAAAJ"
+            weight = 2
         [params.social.github]
             name = "GitHub"
             class = "fab fa-github"
             url = "https://github.com/anhducchu"
-            weight = 2
+            weight = 3
         [params.social.linkedin]
             name = "LinkedIn"
             class = "fab fa-linkedin"
             url = "https://www.linkedin.com/in/chuanhduc/"
-            weight = 3
+            weight = 4

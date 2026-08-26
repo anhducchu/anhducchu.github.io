@@ -5,9 +5,34 @@
     {{ with .Site.Params.social }}
         <ul>
         {{ range sort . "weight" }}
-            <li><a href="{{ .url }}" title="{{ .name }}"><i class="{{ .class }}"></i></a></li>
+            {{ if hasPrefix .url "mailto:" }}
+                {{/* Địa chỉ không nằm thẳng trong HTML: bot quét regex "mailto:"
+                     sẽ không thấy gì. JS ghép lại khi trang tải xong. */}}
+                {{ $addr := strings.TrimPrefix "mailto:" .url }}
+                <li><a href="#" class="js-mail" data-m="{{ $addr | base64Encode }}" title="{{ .name }}"><i class="{{ .class }}"></i></a></li>
+            {{ else }}
+                <li><a href="{{ .url }}" title="{{ .name }}"><i class="{{ .class }}"></i></a></li>
+            {{ end }}
         {{ end }}
         </ul>
+        <script>
+        (function () {
+            var links = document.querySelectorAll('a.js-mail');
+            for (var i = 0; i < links.length; i++) {
+                try {
+                    var m = atob(links[i].getAttribute('data-m'));
+                    links[i].href = 'mailto:' + m;
+                    links[i].title = m;
+                } catch (e) { /* để nguyên link nếu trình duyệt chặn */ }
+            }
+        })();
+        </script>
+        {{ range sort . "weight" }}
+            {{ if hasPrefix .url "mailto:" }}
+                {{ $a := strings.TrimPrefix "mailto:" .url }}
+                <noscript><p class="mail-fallback">{{ replace (replace $a "@" " [at] ") "." " [dot] " }}</p></noscript>
+            {{ end }}
+        {{ end }}
     {{ end }}
 
     {{ with .Site.Params.footer.text }}{{ . | safeHTML }}{{ end }}
