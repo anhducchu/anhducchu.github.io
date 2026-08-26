@@ -84,18 +84,28 @@ body.dark-theme kbd {
     border: 1px solid $dark-text-color;
 }
 
+/*
+Bố cục gốc dùng `position: absolute` + table-cell để căn giữa theo chiều dọc.
+Cách đó đưa toàn bộ nội dung ra khỏi luồng, nên <body> luôn chỉ cao bằng viewport
+dù trang dài bao nhiêu. Nền phẳng thì không ai thấy, nhưng nền gradient sẽ bị cắt
+ngang ở đúng mép viewport, cuộn xuống là hụt.
+
+Dùng flex trong luồng bình thường: body cao đúng bằng nội dung nên gradient phủ
+hết, mà trang ngắn vẫn được căn giữa như cũ.
+
+`safe center` là bắt buộc: `center` thường sẽ đẩy phần đầu nội dung tràn lên trên
+mép trên và không cuộn tới được khi nội dung cao hơn viewport.
+*/
 .outer {
-    display: table;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+    min-height: 100vh;
     width: 100%;
-  }
+}
 
 .middle {
-    display: table-cell;
-    vertical-align: middle;
+    width: 100%;
 }
 
 .inner {
