@@ -66,88 +66,35 @@ lên GitHub Pages. Trong repo Settings → Pages, chọn Source = **GitHub Actio
 
 ## Bảng màu
 
-Sửa trong `hugo.toml`, mục `[params.colors]`:
+**Mặc định là nền tối.** Tên biến trong `[params.colors]` vẫn theo theme gốc, dễ nhầm:
 
-```toml
-background_color      = "#ffffff"   # nền sáng
-text_color            = "#181818"
-link_color            = "#000000"
-name_blur_color       = "#c4c4c4"   # phần họ, xám nhạt trên header
-dark_background_color = "#000000"   # nền tối
-dark_text_color       = "#ededed"
-dark_link_color       = "#ffffff"
-dark_name_blur_color  = "#4a4a4a"
-```
+| Nhóm biến | Thực tế là |
+|---|---|
+| không có tiền tố (`background_color`, `link_color`…) | chế độ **sáng**, tông cyan — phải bấm công tắc mới thấy |
+| có tiền tố `dark_` | **tím than**, đây mới là thứ hiện mặc định |
 
-## Lưu ý kỹ thuật
+Nền là gradient, nên khi đổi màu chữ hoặc link phải đo tương phản ở **cả các điểm
+dừng** của gradient chứ không chỉ với `background_color` — điểm sáng nhất mới là chỗ
+chữ dễ chìm nhất. Ngưỡng WCAG AA là 4.5:1. Hiện tại: tối chữ 11.7:1 link 7.6:1,
+sáng chữ 12.5:1 link 5.8:1.
 
-`disablePathToLower = true` trong `hugo.toml` là bắt buộc, đừng xoá. Mặc định Hugo
-đổi URL trong menu thành chữ thường, biến `/pdf/CV_ChuAnhDuc.pdf` thành
-`/pdf/cv_chuanhduc.pdf` — GitHub Pages phân biệt hoa thường nên link CV sẽ 404.
-Toàn bộ file trong `content/` đang đặt tên chữ thường nên cờ này không ảnh hưởng
-URL của các trang.
+Đổi bảng màu thì nhớ đổi kèm: màu công tắc trong `static/css/daynight.css`,
+`theme_color` trong `hugo.toml`, và dựng lại `og-card.jpg`.
 
-## SEO
+### Vì sao mặc định tối lại phức tạp hơn tưởng
 
-Những thứ đã có sẵn, không phải làm gì thêm:
+`<body>` được render sẵn kèm `class="dark-theme"`, rồi có một script **nội tuyến ngay
+sau thẻ `<body>`** gỡ lớp đó ra nếu người dùng đã chọn nền sáng. Script này phải nằm ở
+đó, không được dời xuống `DOMContentLoaded` — nếu dời thì người chọn nền sáng sẽ thấy
+trang nháy tối một nhịp rồi mới đổi.
 
-- **Structured data (JSON-LD)** ở trang chủ, kiểu `Person` — khai báo tên, các biến thể
-  tên (`Chu Anh Đức`, `Anh Duc Chu`…), nơi học, lĩnh vực nghiên cứu, và `sameAs` trỏ tới
-  GitHub + LinkedIn. Đây là thứ giúp Google hiểu trang này với các tài khoản kia là **cùng
-  một người**, thay vì ba thực thể rời rạc.
-- **Thẻ title** trang chủ là `Chu Anh Duc — Data Science & AI Researcher, HUST` thay vì
-  `... • Home`. Google hay hiển thị nguyên dòng này.
-- **`<h1>` trang chủ là tên bạn** (trước đó `<h1>` duy nhất trên trang là chữ "News").
-- **Open Graph + Twitter card** đầy đủ, kèm ảnh `static/images/og-card.jpg` (1200x630) —
-  dán link lên Facebook/LinkedIn/Zalo sẽ ra thẻ đẹp thay vì link trần.
-- **`robots.txt`** trỏ tới sitemap, và **`sitemap.xml`** chỉ liệt kê 3 trang thật.
-  Các file mảnh (`cv/_education.md`…) đặt `build.render = never` nên không sinh ra
-  trang riêng trùng nội dung với `/cv/`.
+Mọi lệnh gọi `localStorage` đều bọc `try/catch`: chế độ ẩn danh hoặc trình duyệt chặn
+lưu trữ sẽ ném lỗi, không bọc thì hỏng luôn cái công tắc.
 
-Muốn đổi ảnh og-card: sửa `tools/og-card.html` rồi chụp lại ở đúng 1200x630:
+## Chạy thử ở máy
+
+Cần Hugo **extended** (>= 0.128):
 
 ```bash
-google-chrome --headless=new --window-size=1200,630 \
-  --screenshot=/tmp/og.png tools/og-card.html
-python3 -c "from PIL import Image; Image.open('/tmp/og.png').convert('RGB').save('static/images/og-card.jpg','JPEG',quality=88,optimize=True,progressive=True)"
+hugo server
 ```
-
-Phải qua JPEG: nền gradient nén PNG rất tệ (338 KB so với 38 KB).
-
-### Việc bạn phải tự làm (phần này quyết định thứ hạng nhiều hơn code)
-
-1. **Google Search Console** — thêm `https://anhducchu.github.io/`, xác minh, rồi
-   *Request indexing* cho trang chủ. Không làm bước này thì có thể mất hàng tuần Google
-   mới tự tìm ra.
-2. **Đặt link ngược về site.** Google xếp hạng dựa nhiều vào việc có bao nhiêu chỗ uy tín
-   trỏ tới. Thêm `anhducchu.github.io` vào: bio GitHub, mục Website của LinkedIn, trang
-   thành viên của AI4LIFE Lab, trang tác giả arXiv, chữ ký email.
-3. **Tạo hồ sơ Google Scholar** rồi thêm link vào `same_as` trong `hugo.toml`. Scholar
-   xếp hạng rất cao cho truy vấn tên người làm nghiên cứu.
-4. Nếu muốn gom cả Facebook về cùng một thực thể thì thêm luôn URL Facebook vào `same_as`.
-
-## Vài thứ đừng xoá nhầm
-
-- `static/googlec90ba32a12081bfc.html` và `google_site_verification` trong `hugo.toml` —
-  hai cách xác minh Google Search Console. Google kiểm tra lại định kỳ, xoá là rớt quyền
-  sở hữu site trong Search Console.
-- `enableGitInfo = true` + `fetch-depth: 0` trong workflow — dùng lịch sử git để sinh
-  `<lastmod>` cho từng trang trong sitemap. Bỏ `fetch-depth` thì clone nông, mất lastmod.
-- `aliases: ["/cv/"]` trong `content/about/_index.md` — trang đổi từ `/cv/` sang `/about/`,
-  alias giữ cho link cũ không chết.
-
-## Email trong footer
-
-Địa chỉ không nằm thẳng trong HTML mà được mã hoá base64 trong `data-m`, JS ghép lại
-lúc chạy. Bot quét regex `mailto:` sẽ không thu được gì. Lưu ý đây chỉ chặn được loại
-bot đơn giản: bot có chạy JS vẫn đọc được, và email vẫn nằm dạng chữ thường trong file
-CV PDF.
-
-## Bảng màu
-
-Sửa ở `[params.colors]` trong `hugo.toml`. Nền là gradient nên khi đổi màu chữ hay
-màu link phải đo tương phản ở **cả bốn điểm dừng** của gradient, không chỉ với
-`background_color`. Ngưỡng WCAG AA là 4.5:1. Giá trị hiện tại: chữ 11.8–14.1:1,
-link 5.6–6.6:1 (nền sáng); chữ 11.6–12.0:1, link 9.3–9.6:1 (nền tối).
-
-Đổi gradient thì nhớ dựng lại `og-card.jpg` cho khớp.

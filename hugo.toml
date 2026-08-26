@@ -82,23 +82,27 @@ enableGitInfo = true
         title_font = "Bree Serif"
         body_font = "Source Sans Pro"
 
-    # ---- Bảng màu: nền gradient trung tính lệch tím-xanh, link mực xanh ----
-    # Đã đo tương phản ở CẢ BỐN điểm dừng của gradient, không chỉ màu nền phẳng:
-    #   sáng: chữ 11.8-14.1:1, link 5.6-6.6:1
-    #   tối : chữ 11.6-12.0:1, link 9.3-9.6:1
-    # Đổi bất kỳ giá trị nào thì đo lại, ngưỡng WCAG AA là 4.5:1.
+    # ---- Bảng màu ----
+    # MẶC ĐỊNH LÀ NỀN TỐI. Tên biến vẫn giữ light/dark theo theme gốc:
+    # nhóm không có tiền tố "dark_" là chế độ SÁNG (tông cyan), người dùng
+    # phải bấm công tắc mới thấy. Nhóm "dark_" là tím than, hiện mặc định.
+    #
+    # Tương phản đo ở điểm dừng xấu nhất của gradient:
+    #   tối : chữ 11.7:1, link 7.6:1
+    #   sáng: chữ 12.5:1, link 5.8:1
+    # Đổi màu thì đo lại, ngưỡng WCAG AA là 4.5:1.
     [params.colors]
-        theme_color           = "#26262a"
-        background_color      = "#f4f3f0"
-        background_gradient   = "linear-gradient(120deg, #e4e2ec 0%, #f8f7f5 42%, #dfe9ee 76%, #efe8e4 100%)"
-        text_color            = "#26262a"
-        link_color            = "#3f5b73"
-        name_blur_color       = "#c0bfc4"
-        dark_background_color = "#17171b"
-        dark_background_gradient = "linear-gradient(120deg, #1f1d28 0%, #17171b 45%, #141a1f 78%, #1c1917 100%)"
-        dark_text_color       = "#d6d3cd"
-        dark_link_color       = "#9fc3dd"
-        dark_name_blur_color  = "#55545c"
+        theme_color           = "#17141f"
+        background_color      = "#eef6f8"
+        background_gradient   = "linear-gradient(135deg, #dbeef2 0%, #f4fafb 46%, #d5e9ef 100%)"
+        text_color            = "#14262b"
+        link_color            = "#095f6e"
+        name_blur_color       = "#a9c3ca"
+        dark_background_color = "#17141f"
+        dark_background_gradient = "linear-gradient(140deg, #221c33 0%, #17141f 48%, #131120 100%)"
+        dark_text_color       = "#ddd8e6"
+        dark_link_color       = "#b6a6f0"
+        dark_name_blur_color  = "#4d4560"
 
     [params.social]
         [params.social.email]

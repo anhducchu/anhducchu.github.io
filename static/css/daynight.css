@@ -8,7 +8,7 @@
   position: relative;
   width: 64px;
   height: 32px;
-  border: 2px solid #dcdad5;
+  border: 2px solid #bcd4da;
   border-radius: 50px;
   background-color: #ffffff;
   transition: background-color 250ms, border-color 250ms;
@@ -18,8 +18,8 @@
 }
 
 .toggle-checkbox:checked ~ .toggle-slot {
-  background-color: #2a2a28;
-  border-color: #46443f;
+  background-color: #2a2338;
+  border-color: #473c63;
 }
 
 .toggle-button {
@@ -27,7 +27,7 @@
   height: 65%;
   width: 30%;
   border-radius: 100%;
-  background-color: #2f2e2b;
+  background-color: #14262b;
   transition: background-color 250ms, left 250ms;
 
   top: 50%;
@@ -36,7 +36,7 @@
 }
 
 .toggle-checkbox:checked ~ .toggle-slot .toggle-button {
-  background-color: #f0eee9;
+  background-color: #ddd8e6;
   left: 27%;
 }
 
@@ -45,7 +45,7 @@
   left: 0%;
   height: 100%;
   width: 100%;
-  color: #2f2e2b;
+  color: #14262b;
 }
 
 .sun-icon-wrapper {
@@ -69,7 +69,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  color: #f0eee9;
+  color: #ddd8e6;
   left: 0%;
 }
 
