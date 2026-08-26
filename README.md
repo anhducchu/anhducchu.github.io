@@ -75,7 +75,7 @@ lên GitHub Pages. Trong repo Settings → Pages, chọn Source = **GitHub Actio
 
 Nền là gradient, nên khi đổi màu chữ hoặc link phải đo tương phản ở **cả các điểm
 dừng** của gradient chứ không chỉ với `background_color` — điểm sáng nhất mới là chỗ
-chữ dễ chìm nhất. Ngưỡng WCAG AA là 4.5:1. Hiện tại: tối chữ 11.7:1 link 7.6:1,
+chữ dễ chìm nhất. Ngưỡng WCAG AA là 4.5:1. Hiện tại: tối chữ 12.4:1 link 8.8:1,
 sáng chữ 12.5:1 link 5.8:1.
 
 Đổi bảng màu thì nhớ đổi kèm: màu công tắc trong `static/css/daynight.css`,

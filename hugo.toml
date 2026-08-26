@@ -85,24 +85,24 @@ enableGitInfo = true
     # ---- Bảng màu ----
     # MẶC ĐỊNH LÀ NỀN TỐI. Tên biến vẫn giữ light/dark theo theme gốc:
     # nhóm không có tiền tố "dark_" là chế độ SÁNG (tông cyan), người dùng
-    # phải bấm công tắc mới thấy. Nhóm "dark_" là tím than, hiện mặc định.
+    # phải bấm công tắc mới thấy. Nhóm "dark_" là navy đậm, hiện mặc định.
     #
     # Tương phản đo ở điểm dừng xấu nhất của gradient:
-    #   tối : chữ 11.7:1, link 7.6:1
+    #   tối : chữ 12.4:1, link 8.8:1
     #   sáng: chữ 12.5:1, link 5.8:1
     # Đổi màu thì đo lại, ngưỡng WCAG AA là 4.5:1.
     [params.colors]
-        theme_color           = "#17141f"
+        theme_color           = "#0e1a2b"
         background_color      = "#eef6f8"
         background_gradient   = "linear-gradient(135deg, #dbeef2 0%, #f4fafb 46%, #d5e9ef 100%)"
         text_color            = "#14262b"
         link_color            = "#095f6e"
         name_blur_color       = "#a9c3ca"
-        dark_background_color = "#17141f"
-        dark_background_gradient = "linear-gradient(140deg, #221c33 0%, #17141f 48%, #131120 100%)"
-        dark_text_color       = "#ddd8e6"
-        dark_link_color       = "#b6a6f0"
-        dark_name_blur_color  = "#4d4560"
+        dark_background_color = "#0e1a2b"
+        dark_background_gradient = "linear-gradient(140deg, #142338 0%, #0e1a2b 48%, #0a1422 100%)"
+        dark_text_color       = "#dde4ee"
+        dark_link_color       = "#5fd0e8"
+        dark_name_blur_color  = "#44536e"
 
     [params.social]
         [params.social.email]

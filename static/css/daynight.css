@@ -18,8 +18,8 @@
 }
 
 .toggle-checkbox:checked ~ .toggle-slot {
-  background-color: #2a2338;
-  border-color: #473c63;
+  background-color: #17293f;
+  border-color: #2f4a63
 }
 
 .toggle-button {
@@ -36,7 +36,7 @@
 }
 
 .toggle-checkbox:checked ~ .toggle-slot .toggle-button {
-  background-color: #ddd8e6;
+  background-color: #dde4ee;
   left: 27%;
 }
 
@@ -69,7 +69,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  color: #ddd8e6;
+  color: #dde4ee;
   left: 0%;
 }
 
