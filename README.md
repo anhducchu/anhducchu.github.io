@@ -66,30 +66,16 @@ lên GitHub Pages. Trong repo Settings → Pages, chọn Source = **GitHub Actio
 
 ## Bảng màu
 
-**Mặc định là nền tối.** Tên biến trong `[params.colors]` vẫn theo theme gốc, dễ nhầm:
+Đen trắng, sắc trung tính hơi ấm, **mặc định là nền sáng**. Tránh trắng tinh `#fff`
+và đen tuyền `#000` vì tương phản 21:1 đọc lâu rất nhức mắt. Giá trị hiện tại đạt
+12.9:1 (nền sáng) và 11.7:1 (nền tối) — thừa chuẩn WCAG AA 4.5:1 mà vẫn dịu.
 
-| Nhóm biến | Thực tế là |
-|---|---|
-| không có tiền tố (`background_color`, `link_color`…) | chế độ **sáng**, tông cyan — phải bấm công tắc mới thấy |
-| có tiền tố `dark_` | **tím than**, đây mới là thứ hiện mặc định |
+Sửa ở `[params.colors]` trong `hugo.toml`. Đổi thì đo lại tương phản, và nhớ đổi kèm
+màu công tắc trong `static/css/daynight.css`, `theme_color`, và dựng lại `og-card.jpg`.
 
-Nền là gradient, nên khi đổi màu chữ hoặc link phải đo tương phản ở **cả các điểm
-dừng** của gradient chứ không chỉ với `background_color` — điểm sáng nhất mới là chỗ
-chữ dễ chìm nhất. Ngưỡng WCAG AA là 4.5:1. Hiện tại: tối chữ 12.4:1 link 8.8:1,
-sáng chữ 12.5:1 link 5.8:1.
-
-Đổi bảng màu thì nhớ đổi kèm: màu công tắc trong `static/css/daynight.css`,
-`theme_color` trong `hugo.toml`, và dựng lại `og-card.jpg`.
-
-### Vì sao mặc định tối lại phức tạp hơn tưởng
-
-`<body>` được render sẵn kèm `class="dark-theme"`, rồi có một script **nội tuyến ngay
-sau thẻ `<body>`** gỡ lớp đó ra nếu người dùng đã chọn nền sáng. Script này phải nằm ở
-đó, không được dời xuống `DOMContentLoaded` — nếu dời thì người chọn nền sáng sẽ thấy
-trang nháy tối một nhịp rồi mới đổi.
-
-Mọi lệnh gọi `localStorage` đều bọc `try/catch`: chế độ ẩn danh hoặc trình duyệt chặn
-lưu trữ sẽ ném lỗi, không bọc thì hỏng luôn cái công tắc.
+Theme có sẵn hai param `background_gradient` và `dark_background_gradient` nếu sau này
+muốn nền chuyển màu; hiện để trống nên nền phẳng. Nếu bật, phải đo tương phản ở **cả
+các điểm dừng** của gradient chứ không chỉ với `background_color`.
 
 ## Chạy thử ở máy
 
