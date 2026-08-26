@@ -40,22 +40,7 @@ body.dark-theme main a,
 body.dark-theme nav a,
 body.dark-theme a {
     color: $dark-link-color;
-    text-decoration-color: rgba($dark-link-color, .45);
-}
-
-body.dark-theme main a:hover {
     text-decoration-color: $dark-link-color;
-}
-
-/* Bóng màu mực trên nền than thì vô hình — nền tối phải dùng bóng đen đậm hơn. */
-body.dark-theme .landing-page-image img {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .5),
-                0 12px 30px rgba(0, 0, 0, .55);
-}
-
-body.dark-theme .landing-page-image img:hover {
-    box-shadow: 0 3px 8px rgba(0, 0, 0, .55),
-                0 22px 46px rgba(0, 0, 0, .62);
 }
 
 body.dark-theme nav a::after {

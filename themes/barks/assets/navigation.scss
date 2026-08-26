@@ -16,14 +16,6 @@ nav a {
     // background-clip: text;
 }
 
-nav a {
-    transition: opacity .2s ease;
-}
-
-nav a:hover {
-    opacity: .72;
-}
-
 nav a::after {
     margin-top: 4px;
     content: '';
@@ -31,7 +23,7 @@ nav a::after {
     width: 0;
     height: 4px;
     background: $link-color;
-    transition: width .26s cubic-bezier(.22, .68, .28, 1);
+    transition: width 0.17s;
 }
 
 nav a:hover::after,

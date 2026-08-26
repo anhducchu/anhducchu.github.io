@@ -23,16 +23,6 @@
     margin: 0;
     height: auto;
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(38, 38, 42, .10),
-                0 10px 26px rgba(38, 38, 42, .12);
-    transition: transform .38s cubic-bezier(.22, .68, .28, 1), box-shadow .38s ease;
-}
-
-.landing-page-image img:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 3px 8px rgba(38, 38, 42, .12),
-                0 20px 42px rgba(38, 38, 42, .17);
 }
 
 
