@@ -1,10 +1,15 @@
 
 {{ define "main" }}
 
-{{/* Ảnh chân dung: tự nhận bất kỳ file nào tên static/images/profile.<ext>.
-     Chỉ cần push ảnh lên là nó hiện, không phải sửa config.
-     Muốn chỉ định file khác thì đặt `image:` trong front matter của trang. */}}
-{{ $img := .Params.image }}
+{{/* Ảnh chân dung.
+     1. Ưu tiên đường dẫn khai báo ở `image:` trong front matter của trang.
+     2. Đường dẫn đó chỉ được dùng nếu file có thật trong static/ — nếu chưa
+        push ảnh lên thì bỏ qua, để trang không hiện icon ảnh vỡ.
+     3. Không khai báo gì thì tự dò static/images/profile.<ext>. */}}
+{{ $img := "" }}
+{{ with .Params.image }}
+    {{ if fileExists (printf "static%s" .) }}{{ $img = . }}{{ end }}
+{{ end }}
 {{ if not $img }}
     {{ if fileExists "static/images" }}
         {{ range readDir "static/images" }}

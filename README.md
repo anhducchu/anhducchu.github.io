@@ -20,13 +20,24 @@ Thứ tự các mục trên trang do `weight` trong front matter quyết định
 
 ## Thêm ảnh chân dung
 
-Bỏ file ảnh vào `static/images/` và đặt tên là `profile` — `profile.jpg`, `profile.png`,
-`profile.webp` đều được. Site tự nhận, **không cần sửa config gì thêm**.
+Ảnh khai báo ở đầu file `content/_index.md`:
 
-Chưa có ảnh thì phần chữ tự giãn full chiều rộng, không bị vỡ layout hay hiện icon ảnh lỗi.
+```yaml
+---
+title: "Home"
+layout: landing_page
+image: "/images/profile.jpg"
+---
+```
 
-Ảnh nên để dạng chân dung dọc, tỉ lệ khoảng 2:3 (ví dụ 440×660 px). Muốn dùng file tên
-khác thì khai báo trong `content/_index.md`: `image: "/images/ten-file.jpg"`.
+Chỉ cần bỏ file ảnh vào `static/images/profile.jpg` cho khớp đường dẫn đó là xong.
+Muốn dùng tên file khác thì sửa dòng `image:` cho khớp.
+
+Ảnh nên để dạng chân dung dọc, tỉ lệ khoảng 2:3 (ví dụ 440x660 px).
+
+Site có kiểm tra file tồn tại trước khi chèn: khi nào chưa push ảnh lên thì phần chữ
+tự giãn full chiều rộng, không hiện icon ảnh vỡ. Nếu quên sửa `image:` mà cứ đặt tên
+file là `profile.<ext>` thì site vẫn tự dò ra và dùng.
 
 ## Chạy thử ở máy
 
