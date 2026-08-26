@@ -51,7 +51,7 @@ enableGitInfo = true
     # ---- SEO ----
     [params.seo]
         # Ảnh hiện khi dán link lên Facebook, LinkedIn, Zalo, Messenger...
-        og_image = "/images/og-card.png"
+        og_image = "/images/og-card.jpg"
         locale = "en_US"
         # Các biến thể tên để Google gom về cùng một người.
         alternate_names = ["Chu Anh Đức", "Anh Duc Chu", "Anh-Duc Chu", "Duc Chu", "Đức Chu Anh"]
@@ -82,20 +82,23 @@ enableGitInfo = true
         title_font = "Bree Serif"
         body_font = "Source Sans Pro"
 
-    # ---- Bảng màu đen trắng, sắc trung tính hơi ấm ----
-    # Tránh trắng tinh #fff và đen tuyền #000 vì tương phản 21:1 gây nhức mắt
-    # khi đọc lâu. Bộ dưới vẫn đạt 12.9:1 (nền sáng) và 11.7:1 (nền tối),
-    # thừa chuẩn WCAG AA (4.5:1). Đổi thì kiểm tra lại tương phản.
+    # ---- Bảng màu: nền gradient trung tính lệch tím-xanh, link mực xanh ----
+    # Đã đo tương phản ở CẢ BỐN điểm dừng của gradient, không chỉ màu nền phẳng:
+    #   sáng: chữ 11.8-14.1:1, link 5.6-6.6:1
+    #   tối : chữ 11.6-12.0:1, link 9.3-9.6:1
+    # Đổi bất kỳ giá trị nào thì đo lại, ngưỡng WCAG AA là 4.5:1.
     [params.colors]
-        theme_color           = "#2f2e2b"
-        background_color      = "#faf9f7"
-        text_color            = "#2f2e2b"
-        link_color            = "#171614"
-        name_blur_color       = "#bfbcb6"
-        dark_background_color = "#1a1a19"
+        theme_color           = "#26262a"
+        background_color      = "#f4f3f0"
+        background_gradient   = "linear-gradient(120deg, #e4e2ec 0%, #f8f7f5 42%, #dfe9ee 76%, #efe8e4 100%)"
+        text_color            = "#26262a"
+        link_color            = "#3f5b73"
+        name_blur_color       = "#c0bfc4"
+        dark_background_color = "#17171b"
+        dark_background_gradient = "linear-gradient(120deg, #1f1d28 0%, #17171b 45%, #141a1f 78%, #1c1917 100%)"
         dark_text_color       = "#d6d3cd"
-        dark_link_color       = "#f0eee9"
-        dark_name_blur_color  = "#56544f"
+        dark_link_color       = "#9fc3dd"
+        dark_name_blur_color  = "#55545c"
 
     [params.social]
         [params.social.email]

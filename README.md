@@ -98,7 +98,7 @@ Những thứ đã có sẵn, không phải làm gì thêm:
 - **Thẻ title** trang chủ là `Chu Anh Duc — Data Science & AI Researcher, HUST` thay vì
   `... • Home`. Google hay hiển thị nguyên dòng này.
 - **`<h1>` trang chủ là tên bạn** (trước đó `<h1>` duy nhất trên trang là chữ "News").
-- **Open Graph + Twitter card** đầy đủ, kèm ảnh `static/images/og-card.png` (1200x630) —
+- **Open Graph + Twitter card** đầy đủ, kèm ảnh `static/images/og-card.jpg` (1200x630) —
   dán link lên Facebook/LinkedIn/Zalo sẽ ra thẻ đẹp thay vì link trần.
 - **`robots.txt`** trỏ tới sitemap, và **`sitemap.xml`** chỉ liệt kê 3 trang thật.
   Các file mảnh (`cv/_education.md`…) đặt `build.render = never` nên không sinh ra
@@ -108,8 +108,11 @@ Muốn đổi ảnh og-card: sửa `tools/og-card.html` rồi chụp lại ở �
 
 ```bash
 google-chrome --headless=new --window-size=1200,630 \
-  --screenshot=static/images/og-card.png tools/og-card.html
+  --screenshot=/tmp/og.png tools/og-card.html
+python3 -c "from PIL import Image; Image.open('/tmp/og.png').convert('RGB').save('static/images/og-card.jpg','JPEG',quality=88,optimize=True,progressive=True)"
 ```
+
+Phải qua JPEG: nền gradient nén PNG rất tệ (338 KB so với 38 KB).
 
 ### Việc bạn phải tự làm (phần này quyết định thứ hạng nhiều hơn code)
 
@@ -139,3 +142,12 @@ google-chrome --headless=new --window-size=1200,630 \
 lúc chạy. Bot quét regex `mailto:` sẽ không thu được gì. Lưu ý đây chỉ chặn được loại
 bot đơn giản: bot có chạy JS vẫn đọc được, và email vẫn nằm dạng chữ thường trong file
 CV PDF.
+
+## Bảng màu
+
+Sửa ở `[params.colors]` trong `hugo.toml`. Nền là gradient nên khi đổi màu chữ hay
+màu link phải đo tương phản ở **cả bốn điểm dừng** của gradient, không chỉ với
+`background_color`. Ngưỡng WCAG AA là 4.5:1. Giá trị hiện tại: chữ 11.8–14.1:1,
+link 5.6–6.6:1 (nền sáng); chữ 11.6–12.0:1, link 9.3–9.6:1 (nền tối).
+
+Đổi gradient thì nhớ dựng lại `og-card.jpg` cho khớp.

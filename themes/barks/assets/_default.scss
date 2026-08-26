@@ -13,6 +13,9 @@
 
 body {
     background-color: $background-color;
+    @if $bg-gradient != none { background-image: $bg-gradient; }
+    background-repeat: no-repeat;
+    background-size: cover;
     color: $text-color;
     min-height: 100vh;
 	font-family: $body-font, sans-serif;
@@ -24,6 +27,7 @@ body {
 
 body.dark-theme {
     background-color: $dark-background-color;
+    @if $dark-bg-gradient != none { background-image: $dark-bg-gradient; } @else { background-image: none; }
     color: $dark-text-color;
 }
 

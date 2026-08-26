@@ -17,6 +17,9 @@ $dark-text-color: {{ .Site.Params.colors.dark_text_color | default "#ededed" }};
 $dark-link-color: {{ .Site.Params.colors.dark_link_color | default "#ffffff" }};
 $dark-name-blur-color: {{ .Site.Params.colors.dark_name_blur_color | default "#4a4a4a" }};
 
+$bg-gradient: {{ .Site.Params.colors.background_gradient | default "none" }};
+$dark-bg-gradient: {{ .Site.Params.colors.dark_background_gradient | default "none" }};
+
 
 
 
