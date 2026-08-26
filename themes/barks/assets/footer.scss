@@ -13,9 +13,14 @@ footer {
         transition: all .15s ease-in-out;
     }
 
+    .fas, .fab, .ai {
+        display: inline-block;
+        transition: transform .22s cubic-bezier(.22, .68, .28, 1), color .2s ease;
+    }
+
     .fas:hover, .fab:hover, .ai:hover {
         color: $link-color;
-        transform: scale(1.5);
+        transform: translateY(-2px) scale(1.22);
     }
 
 }

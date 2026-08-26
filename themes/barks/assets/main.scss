@@ -12,15 +12,17 @@ main {
         color: $link-color;
         text-decoration: underline;
         text-decoration-style: dotted;
-        text-underline-offset: 1px;
-	text-decoration-color: $link-color;
+        text-decoration-color: rgba($link-color, 0.45);
+        text-underline-offset: 2px;
+        text-decoration-thickness: 1px;
+        transition: text-decoration-color .2s ease, text-underline-offset .2s ease, opacity .2s ease;
     }
 
-    a:hover  {
+    a:hover {
         text-decoration-style: solid;
         text-decoration-color: $link-color;
-	    color: $link-color;
-	    text-underline-offset: 1px;
+        text-underline-offset: 3px;
+        opacity: .82;
     }
 
 

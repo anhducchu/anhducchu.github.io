@@ -151,3 +151,22 @@ màu link phải đo tương phản ở **cả bốn điểm dừng** của grad
 link 5.6–6.6:1 (nền sáng); chữ 11.6–12.0:1, link 9.3–9.6:1 (nền tối).
 
 Đổi gradient thì nhớ dựng lại `og-card.jpg` cho khớp.
+
+## Chuyển động
+
+Toàn bộ animation nằm gọn trong `themes/barks/assets/motion.scss`. Muốn tắt hết thì
+xoá dòng `@import "motion.scss";` ở cuối `styles.scss`, không phải sửa chỗ nào khác.
+Hiệu ứng hover thì nằm cùng file với thành phần tương ứng (`navigation.scss`,
+`main.scss`, `landing_page.scss`, `footer.scss`).
+
+Hai điều đừng phá khi sửa:
+
+- **Chỉ animate `opacity` và `transform`.** Hai thuộc tính này chạy trên GPU, không
+  gây reflow nên không giật và không làm nhảy layout. Animate `width`, `height`,
+  `top`, `margin` thì ngược lại.
+- **Đừng đặt `opacity: 0` ở rule gốc**, chỉ đặt trong keyframe `from`. Trình duyệt
+  nào không chạy animation thì nội dung vẫn hiện, thay vì trắng trang.
+
+Có khối `@media (prefers-reduced-motion: reduce)` tắt sạch chuyển động cho người bật
+giảm hiệu ứng trong hệ điều hành — nhiều người bị rối loạn tiền đình thấy chóng mặt
+với animation. Đừng xoá khối đó.
