@@ -2,6 +2,9 @@
 title: "Skills"
 layout: post
 weight: 50
+build:
+  render: never
+  list: local
 ---
 
 **Programming** &nbsp; Python, C++, Java, LaTeX

@@ -2,6 +2,9 @@
 title: "Leadership & Teaching"
 layout: post
 weight: 40
+build:
+  render: never
+  list: local
 ---
 
 **FPT Young Talent, FPT Corporation**  

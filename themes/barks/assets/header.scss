@@ -49,3 +49,14 @@ header .namehighlight {
     }
 
 }
+
+/* <h1> bọc tên ở trang chủ: chỉ để lấy ngữ nghĩa cho SEO,
+   không được đổi gì về mặt hiển thị. */
+header h1.title-wrap {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    text-align: center;
+}

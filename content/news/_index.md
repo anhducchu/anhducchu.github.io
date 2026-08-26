@@ -1,5 +1,8 @@
 ---
 title: "News"
+build:
+  render: never
+  list: local
 ---
 
 **2026** &nbsp;&nbsp; Paper accepted to **WACV 2026**: *PADM: A Physics-aware Diffusion Model for Attenuation Correction.*

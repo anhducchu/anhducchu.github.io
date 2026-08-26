@@ -2,6 +2,9 @@
 title: "Education"
 layout: post
 weight: 10
+build:
+  render: never
+  list: local
 ---
 
 **Hanoi University of Science and Technology (HUST)**  

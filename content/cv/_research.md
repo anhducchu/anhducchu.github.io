@@ -2,6 +2,9 @@
 title: "Research"
 layout: post
 weight: 20
+build:
+  render: never
+  list: local
 ---
 
 **AI4LIFE Lab, Hanoi University of Science and Technology**  

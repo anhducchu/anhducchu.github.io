@@ -14,6 +14,10 @@
             </div>
         </label>
     </div>
+    {{/* Trên trang chủ, tên đứng trong <h1> — heading chính của trang phải là
+         tên chủ nhân site, không phải "News". Các trang khác giữ <a> thường để
+         <h1> dành cho tiêu đề trang đó. */}}
+    {{ if .IsHome }}<h1 class="title-wrap">{{ end }}
     <a href="/" class="title">
       {{- $title := .Site.Title -}}
       {{- with .Site.Params.header.highlight -}}
@@ -21,4 +25,5 @@
       {{- end -}}
       {{ $title | safeHTML }}
     </a>
+    {{ if .IsHome }}</h1>{{ end }}
 </header>

@@ -2,6 +2,9 @@
 title: "Awards & Scholarships"
 layout: post
 weight: 30
+build:
+  render: never
+  list: local
 ---
 
 **First Prize, National Student Startup Competition** &mdash; *2026*  

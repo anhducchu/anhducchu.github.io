@@ -6,7 +6,7 @@ layout: landing_page
 # Muốn dùng file tên khác thì khai báo: image: "/images/ten-file.jpg"
 ---
 
-Hi, I'm Anh Đức — you can call me Duc.
+Hi, I’m Chu Anh Đức — you can call me Duc.
 
 I'm a BSc student in Data Science and Artificial Intelligence at [**Hanoi University of Science and Technology**](https://hust.edu.vn), Elite Technology Program, and an undergraduate researcher at **AI4LIFE Lab**, advised by Assoc. Prof. **Nguyen Phi Le**.
 

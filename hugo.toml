@@ -4,6 +4,7 @@ title = 'Chu Anh Duc'
 theme = 'barks'
 disablePathToLower = true
 disableKinds = ['taxonomy', 'term']
+enableRobotsTXT = true
 
 [markup.goldmark.renderer]
     unsafe = true
@@ -33,8 +34,28 @@ disableKinds = ['taxonomy', 'term']
 
     [params.head]
         author = "Chu Anh Duc"
-        description = "BSc student in Data Science and AI at HUST, undergraduate researcher at AI4LIFE Lab. Diffusion models, optimal transport, cross-modal learning."
-        keywords = ["Chu Anh Duc", "diffusion models", "optimal transport", "knowledge distillation", "medical imaging", "HUST", "AI4LIFE"]
+        description = "Chu Anh Duc (Chu Anh Đức) is a BSc student in Data Science and Artificial Intelligence at Hanoi University of Science and Technology and an undergraduate researcher at AI4LIFE Lab, working on diffusion models, optimal transport and cross-modal learning."
+        keywords = ["Chu Anh Duc", "Chu Anh Đức", "Anh Duc Chu", "anhducchu", "diffusion models", "optimal transport", "knowledge distillation", "cross-modal learning", "medical imaging", "HUST", "AI4LIFE Lab"]
+        # Đứng sau tên ở thẻ <title> trang chủ — Google hay hiện nguyên dòng này.
+        tagline = "Data Science & AI Researcher, HUST"
+
+    # ---- SEO ----
+    [params.seo]
+        # Ảnh hiện khi dán link lên Facebook, LinkedIn, Zalo, Messenger...
+        og_image = "/images/og-card.png"
+        locale = "en_US"
+        # Các biến thể tên để Google gom về cùng một người.
+        alternate_names = ["Chu Anh Đức", "Anh Duc Chu", "Anh-Duc Chu", "Duc Chu", "Đức Chu Anh"]
+        job_title = "Undergraduate Researcher"
+        affiliation = "Hanoi University of Science and Technology"
+        affiliation_url = "https://hust.edu.vn"
+        knows_about = ["Machine Learning", "Diffusion Models", "Optimal Transport", "Knowledge Distillation", "Medical Image Computing", "Cross-Modal Representation Learning"]
+        # Hồ sơ ở nơi khác — tín hiệu quan trọng nhất để Google biết
+        # trang này với các tài khoản kia là cùng một người.
+        same_as = [
+            "https://github.com/anhducchu",
+            "https://www.linkedin.com/in/chuanhduc/",
+        ]
 
     [params.header]
         # Phần tên được tô đậm (đen); phần còn lại xám nhạt.
