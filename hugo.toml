@@ -76,7 +76,7 @@ enableGitInfo = true
 
     [params.footer]
         show_footer = true
-        text = "&copy; 2026 Chu Anh Duc"
+        text = """&copy; 2026 Chu Anh Duc &middot; built with <a href="https://gohugo.io">Hugo</a> and the <a href="https://github.com/timothygebhard/barks">barks</a> theme"""
 
     [params.typography]
         title_font = "Bree Serif"
