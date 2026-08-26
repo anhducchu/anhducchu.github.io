@@ -7,14 +7,8 @@ build:
   list: local
 ---
 
-**FPT Young Talent, FPT Corporation**  
-Co-Lead, Global Webinar Program &mdash; top 15 of 200+ applicants  
-*2025 – Present*
-- Organized an international webinar series sharing career insights on AI, finance, and entrepreneurship
-- Led a team of 8 designing 3 sessions across DSAI, Finance, and Entrepreneurship
+**Co-Lead, Global Webinar Program** &mdash; FPT Young Talent, FPT Corporation, *2025 – Present*  
+International webinar series on AI, finance, and entrepreneurship; led a team of 8 across 3 sessions
 
-**Academic Support Club, HUST**  
-Teaching Instructor  
-*2024 – Present*
-- Delivered Linear Algebra lectures to 60+ students and Q&A support for 200+ students
-- Organized mock exams for 600+ on-site participants; revision materials used by 2,000+ undergraduates
+**Teaching Instructor** &mdash; Academic Support Club, HUST, *2024 – Present*  
+Linear Algebra lectures for 60+ students; mock exams for 600+ participants; materials used by 2,000+ undergraduates

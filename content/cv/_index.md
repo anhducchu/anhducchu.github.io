@@ -2,4 +2,4 @@
 title: "Background"
 ---
 
-The PDF version of my CV is available [here](/pdf/CV_ChuAnhDuc.pdf).
+A summary. Full details are in my [CV](/pdf/CV_ChuAnhDuc.pdf).
