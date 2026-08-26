@@ -1,0 +1,98 @@
+/* Day/night toggle — black & white */
+
+.toggle-checkbox {
+  display: none;
+}
+
+.toggle-slot {
+  position: relative;
+  width: 64px;
+  height: 32px;
+  border: 2px solid #d6d6d6;
+  border-radius: 50px;
+  background-color: #ffffff;
+  transition: background-color 250ms, border-color 250ms;
+  display: flex;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.toggle-checkbox:checked ~ .toggle-slot {
+  background-color: #1a1a1a;
+  border-color: #3d3d3d;
+}
+
+.toggle-button {
+  position: absolute;
+  height: 65%;
+  width: 30%;
+  border-radius: 100%;
+  background-color: #181818;
+  transition: background-color 250ms, left 250ms;
+
+  top: 50%;
+  left: 73%;
+  transform: translate(-50%, -50%);
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .toggle-button {
+  background-color: #ffffff;
+  left: 27%;
+}
+
+.sun-icon {
+  position: absolute;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  color: #181818;
+}
+
+.sun-icon-wrapper {
+  position: absolute;
+  height: 60%;
+  width: 28.3%;
+  top: 50%;
+  left: 25%;
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(15deg);
+  transform-origin: 50% 50%;
+  transition: opacity 150ms, left 400ms ease;
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .sun-icon-wrapper {
+  opacity: 0;
+  left: 75%;
+}
+
+.moon-icon {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: #ffffff;
+  left: 0%;
+}
+
+.moon-icon-wrapper {
+  position: absolute;
+  height: 60%;
+  width: 28.3%;
+  top: 50%;
+  left: 25%;
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  transform-origin: 50% 50%;
+  transition: opacity 150ms, left 400ms ease;
+}
+
+.toggle-checkbox:checked ~ .toggle-slot .moon-icon-wrapper {
+  opacity: 1;
+  left: 75%;
+}
+
+@media only screen and (max-width: 600px) {
+  .toggle-slot {
+    width: 64px;
+    height: 32px;
+  }
+}

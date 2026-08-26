@@ -1,0 +1,76 @@
+baseURL = 'https://anhducchu.github.io/'
+languageCode = 'en-us'
+title = 'Chu Anh Duc'
+theme = 'barks'
+disableKinds = ['taxonomy', 'term']
+
+[markup.goldmark.renderer]
+    unsafe = true
+
+[menu]
+    [[menu.main]]
+        name = "Home"
+        url = "/"
+        weight = 1
+    [[menu.main]]
+        name = "Publications"
+        url = "/publications/"
+        weight = 2
+    [[menu.main]]
+        name = "Background"
+        url = "/cv/"
+        weight = 3
+
+[params]
+    author = "Chu Anh Duc"
+    description = "BSc student in Data Science and AI at HUST, undergraduate researcher at AI4LIFE Lab."
+    mainSections = ["posts"]
+
+    [params.head]
+        author = "Chu Anh Duc"
+        description = "BSc student in Data Science and AI at HUST, undergraduate researcher at AI4LIFE Lab. Diffusion models, optimal transport, cross-modal learning."
+        keywords = ["Chu Anh Duc", "diffusion models", "optimal transport", "knowledge distillation", "medical imaging", "HUST", "AI4LIFE"]
+
+    [params.header]
+        # Phần tên được tô đậm (đen); phần còn lại xám nhạt.
+        highlight = "Anh Duc"
+
+    [params.navigation]
+        show_navigation = true
+
+    [params.footer]
+        show_footer = true
+        text = "&copy; 2026 Chu Anh Duc"
+
+    [params.typography]
+        title_font = "Bree Serif"
+        body_font = "Source Sans Pro"
+
+    # ---- Bảng màu đen trắng ----
+    [params.colors]
+        theme_color           = "#111111"
+        background_color      = "#ffffff"
+        text_color            = "#181818"
+        link_color            = "#000000"
+        name_blur_color       = "#c4c4c4"
+        dark_background_color = "#000000"
+        dark_text_color       = "#ededed"
+        dark_link_color       = "#ffffff"
+        dark_name_blur_color  = "#4a4a4a"
+
+    [params.social]
+        [params.social.email]
+            name = "E-Mail"
+            class = "fas fa-envelope"
+            url = "mailto:ducca.work@gmail.com"
+            weight = 1
+        [params.social.github]
+            name = "GitHub"
+            class = "fab fa-github"
+            url = "https://github.com/anhducchu"
+            weight = 2
+        [params.social.linkedin]
+            name = "LinkedIn"
+            class = "fab fa-linkedin"
+            url = "https://www.linkedin.com/in/chuanhduc/"
+            weight = 3

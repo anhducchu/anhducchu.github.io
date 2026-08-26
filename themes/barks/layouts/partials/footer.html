@@ -1,0 +1,16 @@
+
+{{ if not (eq .Site.Params.footer.show_footer false) }}
+<footer>
+
+    {{ with .Site.Params.social }}
+        <ul>
+        {{ range sort . "weight" }}
+            <li><a href="{{ .url }}" title="{{ .name }}"><i class="{{ .class }}"></i></a></li>
+        {{ end }}
+        </ul>
+    {{ end }}
+
+    {{ with .Site.Params.footer.text }}{{ . | safeHTML }}{{ end }}
+
+</footer>
+{{ end }}

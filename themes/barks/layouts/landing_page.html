@@ -1,0 +1,27 @@
+
+{{ define "main" }}
+<div class="landing-page-wrapper{{ if not .Params.image }} no-image{{ end }}">
+    <div class="landing-page-content">
+        <div>
+            {{ .Content | safeHTML }}
+        </div>
+    </div>
+    {{ with .Params.image }}
+    <div class="landing-page-image">
+        <img src="{{ . }}" alt="{{ $.Site.Title }}">
+    </div>
+    {{ end }}
+</div>
+
+{{ with .Site.GetPage "/news" }}
+    <hr class="post-separator">
+    <h1>{{ .Title }}</h1>
+    {{ .Content | safeHTML }}
+{{ end }}
+
+{{ range $i, $e := where site.RegularPages "Type" "in" site.Params.mainSections }}
+    <hr class="post-separator">
+    {{ partial "post_li.html" $e }}
+{{ end }}
+
+{{ end }}

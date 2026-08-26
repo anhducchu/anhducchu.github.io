@@ -1,0 +1,14 @@
+
+{{ define "main" }}
+
+{{ .Content }}
+
+{{ range .Data.Pages }}
+    <hr class="post-separator">
+    {{ if not .Params.hide_title }}
+        <h1>{{ .Title | safeHTML }}</h1>
+    {{ end }}
+    {{ .Content | safeHTML }}
+{{ end }}
+
+{{ end }}
